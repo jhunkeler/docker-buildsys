@@ -1,4 +1,4 @@
-node {
+node('on-master') {
     def image
 
     stage('Clone') {
