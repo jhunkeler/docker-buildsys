@@ -21,6 +21,7 @@ node('on-master') {
                     sh "printenv | sort"
                     sh "/opt/conda/bin/conda --version"
                 }
+            }
         }
 
         /*
