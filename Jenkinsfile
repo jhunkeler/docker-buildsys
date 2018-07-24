@@ -1,4 +1,5 @@
 node('on-master') {
+    env.PATH = "${env.PATH}:/usr/local/bin"
     def image
 
     stage('Clone') {
