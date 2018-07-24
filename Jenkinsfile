@@ -13,14 +13,12 @@ node('on-master') {
             sh "id"
             sh "echo $PATH"
             sh "which docker"
-            step('Build') {
-                image = docker.build("astroconda/buildsys")
-            }
-            step('Test') {
-                image.inside {
-                    sh "printenv | sort"
-                    sh "/opt/conda/bin/conda --version"
-                }
+            
+            image = docker.build("astroconda/buildsys")
+            image.inside {
+                sh "printenv | sort"
+                sh "/opt/conda/bin/conda --version"
+
             }
         }
 
