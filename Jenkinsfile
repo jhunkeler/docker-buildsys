@@ -8,18 +8,19 @@ node('on-master') {
             checkout scm
         }
 
-        stage('Build') {
+        stage('Docker') {
             sh "whoami"
             sh "id"
             sh "echo $PATH"
             sh "which docker"
-            image = docker.build("astroconda/buildsys")
-        }
-
-        stage('Test') {
-            image.inside {
-                sh 'conda --info'
+            step('Build') {
+                image = docker.build("astroconda/buildsys")
             }
+            step('Test') {
+                image.inside {
+                    sh "printenv | sort"
+                    sh "/opt/conda/bin/conda --version"
+                }
         }
 
         /*
