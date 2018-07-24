@@ -8,6 +8,10 @@ node('on-master') {
         }
 
         stage('Build') {
+            sh "whoami"
+            sh "id"
+            sh "echo $PATH"
+            sh "which docker"
             image = docker.build("astroconda/buildsys")
         }
 
