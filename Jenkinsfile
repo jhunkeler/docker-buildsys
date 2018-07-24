@@ -1,6 +1,6 @@
 node('on-master') {
     def DOCKER_HOST = "tcp://pldocker:2376"
-    withEnv(["PATH=${PATH}"]) {
+    withEnv(["DOCKER_HOST=${DOCKER_HOST}"]) {
         def image
 
         stage('Clone') {
