@@ -1,5 +1,5 @@
 node('on-master') {
-    def PATH = "${env.PATH}:/usr/local/bin"
+    def DOCKER_HOST = "tcp://pldocker:2376"
     withEnv(["PATH=${PATH}"]) {
         def image
 
