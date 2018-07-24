@@ -1,5 +1,6 @@
 node('on-master') {
-    def DOCKER_HOST = "tcp://pldocker:2375"
+    //def DOCKER_HOST = "tcp://pldocker:2375"
+    def DOCKER_HOST = "tcp://pldmscin1:2375"
     withEnv(["DOCKER_HOST=${DOCKER_HOST}"]) {
         def image
 
